@@ -22,7 +22,7 @@
 		"PREFIX": {
 			"description": "prefix, check for more",
 			"required": false,
-			"value": "."
+			"value": ","
 		},
 		"SESSION_ID": {
 			"description": "session id",
