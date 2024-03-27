@@ -1,6 +1,6 @@
 ### WhatsApp MD User Bot
 
-A simple WhatsApp User bot.
+A simple WhatsApp User bot. tech god
 
 ## Setup
 
