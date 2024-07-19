@@ -5,3 +5,10 @@ node_modules/
 *.env
 plugins/test.js
 word.txt
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

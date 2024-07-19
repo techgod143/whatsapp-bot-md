@@ -1,86 +1,126 @@
-### WhatsApp MD User Bot
+# WhatsApp MD User Bot
 
 A simple WhatsApp User bot. tech god
 
 ## Setup
 
-1. Deploy on Heroku
+### 1. Deploy on Heroku
+
+1. **Scan QR Code:**
    - Click [SCAN](https://qr-hazel-alpha.vercel.app/md) and scan the QR code through the "WhatsApp Linked Devices" option in your WhatsApp app.
-   - You will get a session ID in WhatsApp, copy the ID only.
+   - You will get a session ID in WhatsApp; copy the ID only.
+
+2. **Create Accounts:**
    - If you don't have an account on [Heroku](https://signup.heroku.com/), [create an account now](https://signup.heroku.com/).
    - If you don't have a GitHub account, [sign up](https://github.com/join) now.
+
+3. **Fork Repository:**
    - [FORK](https://github.com/lyfe00011/whatsapp-bot-md/fork) this repository.
+
+4. **Deploy:**
    - Now [DEPLOY](https://qr-hazel-alpha.vercel.app/heroku).
 
-2. Deploy on Koyeb
+### 2. Deploy on Koyeb
+
+1. **Create an Account:**
    - Create an account on [Koyeb](https://app.koyeb.com/auth/signup). [Sign up now](https://app.koyeb.com/auth/signup).
-   - Get [DATABASE_URL](https://github.com/lyfe00011/whatsapp-bot-md/wiki/DATABASE_URL). You'll need this while deploying.
-   - Get [SESSION_ID](https://qr-hazel-alpha.vercel.app/md). Open Linked Devices in WhatsApp and [SCAN](https://qr-hazel-alpha.vercel.app/md) now.
+
+2. **Get Required Information:**
+   - Get the [DATABASE_URL](https://github.com/lyfe00011/whatsapp-bot-md/wiki/DATABASE_URL). You'll need this while deploying.
+   - Get the [SESSION_ID](https://qr-hazel-alpha.vercel.app/md). Open Linked Devices in WhatsApp and [SCAN](https://qr-hazel-alpha.vercel.app/md) now.
    - Get the Koyeb API key. [Let's Go](https://app.koyeb.com/account/api).
+
+3. **Deploy:**
    - [DEPLOY](https://qr-hazel-alpha.vercel.app/koyeb) now.
    - Enter [Environment Variables](https://github.com/lyfe00011/whatsapp-bot-md/wiki/Environment_Variables). [Read More](https://github.com/lyfe00011/whatsapp-bot-md/wiki/Environment_Variables).
    - Enter a name and click "Create Service."
 
-3. Deploy on VPS or PC (Example here as in Ubuntu)
+### 3. Deploy on VPS or PC (Example here as in Ubuntu)
 
-   - Install with script
+#### Install with Script
 
-         wget -N -O levanter.sh http://bit.ly/43JqREw && chmod +x levanter.sh && ./levanter.sh
+- Run the following command:
+  ```sh
+  bash <(curl -fsSL http://bit.ly/43JqREw)
+  ```
 
-   - Install without a script
-       - Install git, ffmpeg, and curl:
+#### Install without Script
 
-             sudo apt -y update && sudo apt -y upgrade
-             sudo apt -y install git ffmpeg curl
+1. **Install Git, ffmpeg, and curl:**
+   ```sh
+   sudo apt -y update && sudo apt -y upgrade
+   sudo apt -y install git ffmpeg curl
+   ```
 
-       - Install nodejs:
+2. **Install Node.js:**
+   ```sh
+   curl -fsSL https://deb.nodesource.com/setup_20.x -o nodesource_setup.sh
+   sudo -E bash nodesource_setup.sh
+   sudo apt-get install -y nodejs
+   ```
 
-             sudo apt -y remove nodejs
-             curl -fsSl https://deb.nodesource.com/setup_lts.x | sudo bash - && sudo apt -y install nodejs
+3. **Install Yarn:**
+   ```sh
+   sudo npm install -g yarn
+   ```
 
-       - Install yarn:
+4. **Install pm2:**
+   ```sh
+   sudo yarn global add pm2
+   ```
 
-             npm install -g yarn
+5. **Clone Repository and Install Packages:**
+   ```sh
+   git clone https://github.com/lyfe00011/whatsapp-bot-md botName
+   cd botName
+   yarn install
+   ```
 
-       - Install pm2:
+6. **Enter Environment Variables:**
+   ```sh
+   echo "SESSION_ID = Session_Id_you_Got_After_Scan_Dont_Add_This_Line_If_You_Can_Scan_From_Terminal_Itself
+   PREFIX = .
+   STICKER_PACKNAME = LyFE
+   ALWAYS_ONLINE = false
+   RMBG_KEY = null
+   LANGUAG = en
+   WARN_LIMIT = 3
+   FORCE_LOGOUT = false
+   BRAINSHOP = 159501,6pq8dPiYt7PdqHz3
+   MAX_UPLOAD = 200
+   REJECT_CALL = false
+   SUDO = 989876543210
+   TZ = Asia/Kolkata
+   VPS = true
+   AUTO_STATUS_VIEW = true
+   SEND_READ = true
+   AJOIN = true
+   DISABLE_START_MESSAGE = false
+   PERSONAL_MESSAGE = null" > config.env
+   ```
 
-             sudo yarn global add pm2
+   - [Read More](https://github.com/lyfe00011/whatsapp-bot-md/wiki/Environment_Variables)
 
-       - Clone the repository and install packages:
+7. **Edit `config.env` Using Nano (if needed):**
+   - To save, press `Ctrl + O`, then press `Enter`, and to exit, press `Ctrl + X`.
 
-             git clone https://github.com/lyfe00011/whatsapp-bot-md botName
-              cd botName
-               yarn install --network-concurrency 1
+8. **Start and Stop the Bot:**
+   - To start the bot:
+     ```sh
+     pm2 start . --name botName --attach --time
+     ```
+   - To stop the bot:
+     ```sh
+     pm2 stop botName
+     ```
 
-       - Enter Environment Variables: Copy-paste the lines below (remove SESSION_ID if not needed):
+### 4. Deploy on Replit
 
-             echo "SESSION_ID = Session_Id_you_Got_After_Scan_Dont_Add_This_Line_If_You_Can_Scan_From_Terminal_Itself
-             PREFIX = .
-             STICKER_PACKNAME = LyFE
-             ALWAYS_ONLINE = false
-             RMBG_KEY = null
-             LANGUAG = en
-             WARN_LIMIT = 3
-             FORCE_LOGOUT = false
-             BRAINSHOP = 159501,6pq8dPiYt7PdqHz3
-             MAX_UPLOAD = 200
-             REJECT_CALL = false
-             SUDO = 989876543210
-             TZ = Asia/Kolkata
-             VPS = true
-             AUTO_STATUS_VIEW = true
-             SEND_READ = true
-             AJOIN = true
-             DISABLE_START_MESSAGE = false
-             PERSONAL_MESSAGE = null" > config.env
+[![Run on Replit](https://replit.com/badge/github/your-repo-owner/your-repo-name)](https://replit.com/@Nightbot2O/whatsapp-bot-md)
 
-    - [Read More](https://github.com/lyfe00011/whatsapp-bot-md/wiki/Environment_Variables)
-
-    - Edit the `config.env` using nano if needed. To save, press `Ctrl + O`, then press `Enter`, and to exit, press `Ctrl + X`.
-
-    - Start and stop the bot:
-        - To start the bot: `pm2 start . --name botName --attach --time`
-        - To stop the bot: `pm2 stop botName`
+1. Fork the repository.
+2. Edit `config.env`.
+3. Click run.
 
 ### Thanks To
 

@@ -52,6 +52,7 @@ bot(
     const vid = ytIdRegex.exec(match)
     if (vid) {
       const _song = await song(vid[1])
+      if (!_song) return await message.send('*not found*')
       const [result] = await yts(vid[1], true)
       const { author, title, thumbnail } = result
       const meta = title ? await addAudioMetaData(_song, title, author, '', thumbnail.url) : _song

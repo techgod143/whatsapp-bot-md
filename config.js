@@ -47,7 +47,6 @@ module.exports = {
   ANTIWORDS_MSG: process.env.ANTIWORDS_MSG || '_AntiWord Detected &mention kicked_',
   ANTIWORDS: process.env.ANTIWORDS || 'word',
   MENTION: process.env.MENTION || '',
-  SS_TOKEN: process.env.SS_TOKEN || '',
   MAX_UPLOAD: process.env.MAX_UPLOAD || 230,
   REJECT_CALL: toBool(process.env.REJECT_CALL),
   VPS: toBool(process.env.VPS),
@@ -77,4 +76,6 @@ module.exports = {
   DELETE_TYPE: (process.env.DELETE_TYPE || '').trim(),
   LIST_TYPE: (process.env.LIST_TYPE || 'poll').trim(),
   BING_COOKIE: (process.env.BING_COOKIE || '').trim(),
+  GEMINI_API_KEY: (process.env.GEMINI_API_KEY || '').trim(),
+  ADMINS: process.env.GROUP_ADMINS || '',
 }
